@@ -1,9 +1,13 @@
 name: Build APK
 
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: false
+
 on:
   push:
     branches:
-      - main
+      - main  # Change if your default branch is different
 
 jobs:
   build:
